@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
     @State var showDaily = false
@@ -210,8 +211,8 @@ struct showDailyView: View {
                 }
                 Section(header: Text("Time of day")) {
                     DatePicker("", selection: $selectedTime, displayedComponents: .hourAndMinute)
-                        .datePickerStyle(GraphicalDatePickerStyle())
-                        .frame(width: 160, height: 60, alignment: .leading)
+                        .datePickerStyle(DefaultDatePickerStyle())
+                        .padding(.all, 10)
                     }
                 .accentColor(.primary)
                 
@@ -220,18 +221,19 @@ struct showDailyView: View {
             .navigationBarItems(leading: Button(action: {self.showDaily = false}) {
                 Image(systemName: "chevron.backward")
                     .foregroundColor(.primary)
+                    .padding()
             })
                                 
             .labelsHidden()
         }
-                let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: selectedTime)
+            let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: selectedTime)
 
-                Text("\(dateComponents.minute!) \(dateComponents.hour!) \(cronArray[2]) \(cronArray[3]) \(cronArray[4])")
-                    .fontWeight(.bold)
-                    .foregroundColor(.primary)
-                    .font(.system(size: 26, design: .monospaced))
-                    .padding()
-                    .background(Color(UIColor.systemBackground))
+            Text("\(dateComponents.minute!) \(dateComponents.hour!) \(cronArray[2]) \(cronArray[3]) \(cronArray[4])")
+                .fontWeight(.bold)
+                .foregroundColor(.primary)
+                .font(.system(size: 26, design: .monospaced))
+                .padding()
+                .background(Color(UIColor.systemBackground))
     }
 }
     
@@ -260,8 +262,8 @@ struct showWeeklyView: View {
                 .padding(.all, 5)
                 Section(header: Text("Time of day")) {
                     DatePicker("", selection: $selectedTime, displayedComponents: .hourAndMinute)
-                        .datePickerStyle(GraphicalDatePickerStyle())
-                        .frame(width: 160, height: 60, alignment: .leading)
+                        .datePickerStyle(DefaultDatePickerStyle())
+                        .padding(.all, 10)
                     }
                 .accentColor(.primary)
                 }
@@ -269,19 +271,20 @@ struct showWeeklyView: View {
                 .navigationBarItems(leading: Button(action: {self.showWeekly = false}) {
                     Image(systemName: "chevron.backward")
                         .foregroundColor(.primary)
+                        .padding()
                 })
                 
                 .labelsHidden()
         
         }
-                let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: selectedTime)
+            let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: selectedTime)
 
-                Text("\(dateComponents.minute!) \(dateComponents.hour!) \(cronArray[2]) \(cronArray[3]) \(daySelection[daySelect])")
-                    .fontWeight(.bold)
-                    .foregroundColor(.primary)
-                    .font(.system(size: 26, design: .monospaced))
-                    .padding()
-                    .background(Color(UIColor.systemBackground))
+            Text("\(dateComponents.minute!) \(dateComponents.hour!) \(cronArray[2]) \(cronArray[3]) \(daySelection[daySelect])")
+                .fontWeight(.bold)
+                .foregroundColor(.primary)
+                .font(.system(size: 26, design: .monospaced))
+                .padding()
+                .background(Color(UIColor.systemBackground))
         }
 }
     
@@ -316,26 +319,29 @@ struct showMonthlyView: View {
                 }
                 Section(header: Text("Time of day")) {
                     DatePicker("", selection: $selectedTime, displayedComponents: .hourAndMinute)
-                        .datePickerStyle(GraphicalDatePickerStyle())
-                        .frame(width: 160, height: 60, alignment: .leading)
+                        .datePickerStyle(DefaultDatePickerStyle())
+                        .padding(.all, 10)
                     }
-                .accentColor(.primary)
+                    .accentColor(.primary)
             }
+            
             .navigationBarTitle("Monthly On...")
             .navigationBarItems(leading: Button(action: {self.showMonthly = false}) {
                 Image(systemName: "chevron.backward")
                     .foregroundColor(.primary)
-            })
+                    .padding()
+                })
             .labelsHidden()
         }
-                let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: selectedTime)
+        let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: selectedTime)
 
-                Text("\(dateComponents.minute!) \(dateComponents.hour!) \(daySelection[daySelect]) \(cronArray[3]) \(cronArray[4])")
-                    .fontWeight(.bold)
-                    .foregroundColor(.primary)
-                    .font(.system(size: 26, design: .monospaced))
-                    .padding()
-                    .background(Color(UIColor.systemBackground))
+        Text("\(dateComponents.minute!) \(dateComponents.hour!) \(daySelection[daySelect]) \(cronArray[3]) \(cronArray[4])")
+            .fontWeight(.bold)
+            .foregroundColor(.primary)
+            .font(.system(size: 26, design: .monospaced))
+            .padding()
+            .background(Color(UIColor.systemBackground))
+        
         }
 }
 
@@ -386,8 +392,8 @@ struct showYearlyView: View {
                 }
                 Section(header: Text("Time of day")) {
                     DatePicker("", selection: $selectedTime, displayedComponents: .hourAndMinute)
-                        .datePickerStyle(GraphicalDatePickerStyle())
-                        .frame(width: 160, height: 60, alignment: .leading)
+                        .datePickerStyle(DefaultDatePickerStyle())
+                        .padding(.all, 10)
                     }
                 .accentColor(.primary)
             }
@@ -395,17 +401,19 @@ struct showYearlyView: View {
             .navigationBarItems(leading: Button(action: {self.showYearly = false}) {
                 Image(systemName: "chevron.backward")
                     .foregroundColor(.primary)
+                    .padding()
             })
             .labelsHidden()
             }
-                let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: selectedTime)
 
-                Text("\(dateComponents.minute!) \(dateComponents.hour!) \(daySelection[daySelect]) \(monthSelection[monthSelect]) \(cronArray[4])")
-                    .fontWeight(.bold)
-                    .foregroundColor(.primary)
-                    .font(.system(size: 26, design: .monospaced))
-                    .padding()
-                    .background(Color(UIColor.systemBackground))
+            let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: selectedTime)
+
+            Text("\(dateComponents.minute!) \(dateComponents.hour!) \(daySelection[daySelect]) \(monthSelection[monthSelect]) \(cronArray[4])")
+                .fontWeight(.bold)
+                .foregroundColor(.primary)
+                .font(.system(size: 26, design: .monospaced))
+                .padding()
+                .background(Color(UIColor.systemBackground))
             }
 }
 
@@ -423,8 +431,9 @@ struct showXMonthView: View {
         "25", "26", "27", "28", "29", "30",
     ]
     let monthSelection = [
-        "1", "2", "3", "4", "5", "6",
-        "7", "8", "9", "10", "11", "12",
+        "2", "3", "4", "5", "6",
+        "7", "8", "9", "10", "11",
+        "12",
     ]
     
     var body: some View {
@@ -454,8 +463,8 @@ struct showXMonthView: View {
                 }
                 Section(header: Text("Time of day")) {
                     DatePicker("", selection: $selectedTime, displayedComponents: .hourAndMinute)
-                        .datePickerStyle(GraphicalDatePickerStyle())
-                        .frame(width: 160, height: 60, alignment: .leading)
+                        .datePickerStyle(DefaultDatePickerStyle())
+                        .padding(.all, 10)
                     }
                 .accentColor(.primary)
             }
@@ -463,17 +472,18 @@ struct showXMonthView: View {
             .navigationBarItems(leading: Button(action: {self.showXMonth = false}) {
                 Image(systemName: "chevron.backward")
                     .foregroundColor(.primary)
+                    .padding()
             })
             .labelsHidden()
         }
         let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: selectedTime)
 
-                Text("\(dateComponents.minute!) \(dateComponents.hour!) \(daySelection[daySelect]) */\(monthSelection[monthSelect]) \(cronArray[4])")
-                    .fontWeight(.bold)
-                    .foregroundColor(.primary)
-                    .font(.system(size: 26, design: .monospaced))
-                    .padding()
-                    .background(Color(UIColor.systemBackground))
+        Text("\(dateComponents.minute!) \(dateComponents.hour!) \(daySelection[daySelect]) */\(monthSelection[monthSelect]) \(cronArray[4])")
+            .fontWeight(.bold)
+            .foregroundColor(.primary)
+            .font(.system(size: 26, design: .monospaced))
+            .padding()
+            .background(Color(UIColor.systemBackground))
         }
 }
 
@@ -509,15 +519,16 @@ struct showXHourView: View {
             .navigationBarItems(leading: Button(action: {self.showXHour = false}) {
                 Image(systemName: "chevron.backward")
                     .foregroundColor(.primary)
+                    .padding()
             })
             .labelsHidden()
         }
-                Text("\(cronArray[0]) */\(hourSelection[hourSelect]) \(cronArray[2]) \(cronArray[3]) \(cronArray[4])")
-                    .fontWeight(.bold)
-                    .foregroundColor(.primary)
-                    .font(.system(size: 26, design: .monospaced))
-                    .padding()
-                    .background(Color(UIColor.systemBackground))
+            Text("\(cronArray[0]) */\(hourSelection[hourSelect]) \(cronArray[2]) \(cronArray[3]) \(cronArray[4])")
+                .fontWeight(.bold)
+                .foregroundColor(.primary)
+                .font(.system(size: 26, design: .monospaced))
+                .padding()
+                .background(Color(UIColor.systemBackground))
         }
 }
     
@@ -560,27 +571,19 @@ struct showXMinuteView: View {
             .navigationBarItems(leading: Button(action: {self.showXMinute = false}) {
                 Image(systemName: "chevron.backward")
                     .foregroundColor(.primary)
+                    .padding()
             })
             .labelsHidden()
         }
-                Text("*/\(minuteSelection[minuteSelect]) \(cronArray[1]) \(cronArray[2]) \(cronArray[3]) \(cronArray[4])")
-                    .fontWeight(.bold)
-                    .foregroundColor(.primary)
-                    .font(.system(size: 26, design: .monospaced))
-                    .padding()
-                    .background(Color(UIColor.systemBackground))
+            Text("*/\(minuteSelection[minuteSelect]) \(cronArray[1]) \(cronArray[2]) \(cronArray[3]) \(cronArray[4])")
+                .fontWeight(.bold)
+                .foregroundColor(.primary)
+                .font(.system(size: 26, design: .monospaced))
+                .padding()
+                .background(Color(UIColor.systemBackground))
         }
 }
 
 }
 
-//extension View {
-//    func ButtonStyle() -> some View {
-//        self
-//            .fontWeight(.bold)
-//            .foregroundColor(.primary)
-//            .font(.largeTitle)
-//            .padding(.all, 25)
-//            .minimumScaleFactor(0.6)
-//    }
-//}
+
