@@ -15,7 +15,7 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -29,12 +29,12 @@
 	<true/>
 	<key>UILaunchScreen</key>
 	<dict>
+		<key>UIColorName</key>
+		<string>launchScreenBackground</string>
 		<key>UIImageName</key>
 		<string>crongen_logo</string>
 		<key>UIImageRespectsSafeAreaInsets</key>
 		<false/>
-		<key>UIColorName</key>
-		<string>launchScreenBackground</string>
 	</dict>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
