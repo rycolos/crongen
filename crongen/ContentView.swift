@@ -263,8 +263,9 @@ struct showWeeklyView: View {
                 .padding(.all, 5)
                 Section(header: Text("Time of day")) {
                     DatePicker("", selection: $selectedTime, displayedComponents: .hourAndMinute)
-                        .datePickerStyle(DefaultDatePickerStyle())
-                        .padding(.all, 10)
+                        .datePickerStyle(WheelDatePickerStyle())
+                        //.padding(.all, 10)
+                        .frame(height: 120)
                     }
                 .accentColor(.primary)
                 }
@@ -320,8 +321,9 @@ struct showMonthlyView: View {
                 }
                 Section(header: Text("Time of day")) {
                     DatePicker("", selection: $selectedTime, displayedComponents: .hourAndMinute)
-                        .datePickerStyle(DefaultDatePickerStyle())
-                        .padding(.all, 10)
+                        .datePickerStyle(WheelDatePickerStyle())
+                        //.padding(.all, 10)
+                        .frame(height: 120)
                     }
                     .accentColor(.primary)
             }
@@ -393,8 +395,9 @@ struct showYearlyView: View {
                 }
                 Section(header: Text("Time of day")) {
                     DatePicker("", selection: $selectedTime, displayedComponents: .hourAndMinute)
-                        .datePickerStyle(DefaultDatePickerStyle())
-                        .padding(.all, 10)
+                        .datePickerStyle(WheelDatePickerStyle())
+                        //.padding(.all, 10)
+                        .frame(height: 120)
                     }
                 .accentColor(.primary)
             }
@@ -464,8 +467,9 @@ struct showXMonthView: View {
                 }
                 Section(header: Text("Time of day")) {
                     DatePicker("", selection: $selectedTime, displayedComponents: .hourAndMinute)
-                        .datePickerStyle(DefaultDatePickerStyle())
-                        .padding(.all, 10)
+                        .datePickerStyle(WheelDatePickerStyle())
+                        //.padding(.all, 10)
+                        .frame(height: 120)
                     }
                 .accentColor(.primary)
             }
