@@ -1,5 +1,6 @@
 # crongen
 ![](https://github.com/rycolos/crongen/blob/master/Images/screen1_small.png)
+![](https://github.com/rycolos/crongen/blob/master/Images/screen2_small.png)
 ![](https://github.com/rycolos/crongen/blob/master/Images/screen3_small.png)
 
 ## Background
