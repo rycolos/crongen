@@ -107,6 +107,7 @@ struct ContentView: View {
                     }
                     .padding([.leading, .trailing])
                     
+                    
                     Button(action: {
                         self.showXMonth.toggle()
                     }) {
@@ -179,7 +180,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .preferredColorScheme(.light)
+            .preferredColorScheme(.dark)
     }
 }
     
@@ -192,7 +193,6 @@ struct ButtonModifier: ViewModifier {
         .frame(maxWidth: 380)
         .padding(.all, 25)
         .background(color)
-        .shadow(color: .secondary, radius: 5, x: 2, y: 2)
         .cornerRadius(20)
     }
 }
